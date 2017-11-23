@@ -1,0 +1,204 @@
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>Price estimation</title>
+		<link href="./index_files/bootstrap.min.css" rel="stylesheet">
+		<style class="custom-css">
+			#wrap {
+				min-height: 100%;
+				height: auto;
+				/* Negative indent footer by its height */
+				margin: 0 auto -60px;
+				/* Pad bottom by footer height */
+				padding: 0 0 60px;
+			}
+			
+			#footer {
+				font-size: 18px;
+				bottom: 0;
+				padding-top: 20px;
+				height: 60px;
+				position: fixed;
+				width: 100%;
+				background-color: #c5ddc8;
+				
+			}
+		
+			#jumbo {
+				background-color: #c5ddc8;
+				color: #3F3F3F;
+				min-height: 290px;
+				padding-top: 20px;
+				padding-bottom: 20px;
+			}
+			#jumbo p {
+			  font-size: 18px;
+			}
+			
+			#jumbo h1 {
+			  font-size: 25px;
+			}
+			
+			@media (min-width: 650px){
+				#jumbo h1 {
+				  font-size: 30px;
+				}
+			}
+			
+			@media (min-width: 740px){
+				#jumbo h1 {
+				  font-size: 35px;
+				}
+			}
+			
+			@media (min-width: 1024px){
+				#jumbo h1 {
+				  font-size: 50px;
+				}
+			}
+			
+			@media (min-width: 1220px){
+				#jumbo h1 {
+				  font-size: 60px;
+				}
+			}
+			
+			.panel-heading a:after {
+				font-family:'Glyphicons Halflings';
+				content:"\e114";
+				float: right;
+				color: grey;
+			}
+			.panel-heading a.collapsed:after {
+				content:"\e080";
+			}
+			
+			.container a{
+				text-decoration: None;
+			}
+			
+		</style>
+	</head>  
+	<body style="">
+		 <!-- Wrap all page content here -->
+		<div id="wrap">
+			<div id="jumbo" class="jumbotron">
+				<div class="container">
+					<h1>Wholesale price of Cannabis flower </h1>
+					<br>
+					<p>
+This API only contains one function "generate_wholesale_price" which returns the estimated pretax wholesale price per pound for a sample of cannabis					</p>
+				</div>
+			</div>
+			
+			<!--main-->
+			<div class="container">
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-default" id="panel1">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-target="#collapseOne" href="file:///Users/Peter/Desktop/Dropbox/ConfidentCannabis/Project/html/index.html#" class="">Wholesale price estimation</a>
+							</h4>
+						</div>
+						
+						<div id="collapseOne" class="panel-collapse in" style="height: auto;">
+							<div class="panel-body">
+								Request: <b>http://localhost:8080/generate_wholesale_price</b><br><br>
+                                <b>Only Post Requests Accepted</b><br>
+								<hr>The
+<b>output is a JSON-file</b> in the following format:<br><br>
+
+								<div>
+									<pre id="json">{
+  "success": true/false,
+  "payload": {
+    "pplb_pretax":estprice
+  }
+}</pre>Where "estprice" is the estimated wholesale price per pound
+                                    <hr>
+                                    If an <b>error</b> is present it is returned as a string in "pplb_pretax"
+                                    
+</div>
+							</div>
+						</div>
+					</div>
+                    <div class="panel panel-default" id="panel2">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-target="#collapseTwo" href="file:///Users/Peter/Desktop/Dropbox/ConfidentCannabis/Project/html/index.html#" class="">Expected input</a>
+							</h4>
+						</div>
+						
+						<div id="collapseTwo" class="panel-collapse in" style="height: auto;">
+							<div class="panel-body">
+								A JSON payload is <b>neccessary</b> as input. All fields must be present and of correct type or an error is returned.<br><hr>
+                                <b>JSON</b> input is <b>formatted:</b><br>
+
+								<div>
+									<pre id="json">{
+  "sample_info": {
+  "payload" = {
+    "date": "19/06/2017 07:19",
+    "date_sessiontime": 1497881996,
+    "month": 6,
+    "retailer": "KUSHMART",
+    "retailer_city": "everett",
+    "processor": "CLANDESTINE CONSULTING",
+    "processor_city": "acme",
+    "producer": "JAG 15",
+    "producer_city": "SUMAS",
+    "retailer_to_seattle": 28.30290678,
+    "retailer_to_tacoma": 61.47302621,
+    "retailer_to_bellingham": 61.1816024,
+    "retailer_to_olympia": 88.78360073,
+    "retailer_to_bellingham.1": 61.1816024,
+    "retailer_to_vancouver": 192.920079,
+    "retailer_to_kennewick": 235.5158015,
+    "retailer_to_yakima": 163.9050791,
+    "retailer_to_spokane": 300.4983409,
+    "strain_display_name": "Blackberry Kush",
+    "product_name": "Blackberry 3.5G",
+    "product_size_g": 3.5,
+    "distance": 50.61711954,
+    "total_lb_sold": 0.385809274,
+    "units_sold": 50,
+    "lab_name": "Peak Analytics Laboratory Testing Services",
+    "thc": 26.5,
+    "cbd": 0,
+    "moisture": 8,
+    "comp_1": -1.248939237,
+    "comp_2": -0.091173317,
+    "comp_3": 0.257311532,
+    "comp_4": -0.356450682
+    }
+  }
+}</pre>
+                                    
+</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!--/container-->
+		</div><!-- Wrap Div end -->
+		
+		<div id="footer">
+			<div class="container">
+				<p class="muted credit">Developed for Confident Cannabis</p>
+			</div>
+		</div>
+
+		<script src="./index_files/jquery.min.js"></script>
+		<script src="./index_files/bootstrap.min.js"></script>
+		<script>
+			
+			var jsonStr = $("#json").text();
+			var jsonObj = JSON.parse(jsonStr);
+			var jsonPretty = JSON.stringify(jsonObj, null, '\t');
+			$("#json").text(jsonPretty);
+			
+		</script>
+	
+</body></html>
